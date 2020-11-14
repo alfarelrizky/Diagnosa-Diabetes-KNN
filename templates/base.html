@@ -1,0 +1,122 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	Cek Diagnosa Diabetes
+{% endblock %}
+
+{% block body %}
+	
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}<br>
+			<div class="alert container alert-danger alert-dismissible fade show" role="alert">
+				<strong>{{message}}</strong>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>			
+		{% endfor %}
+	{% endif %}
+	{% endwith %}
+
+	<div class="limiter">
+		<div class="container-login100" style="background: url('{{ url_for('static', filename='images/bg-01.jpg') }}') no-repeat;background-size: 100% 100%;background-attachment: fixed;">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" action="/" method="post">
+					<span class="login100-form-logo">
+						<i class="zmdi zmdi-hospital"></i>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						DIAGNOSA DIABETES
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Masukan Pregnancies">
+						<input class="input100" type="number" name="Pregnancies" placeholder="Pregnancies">
+						<span class="focus-input100" data-placeholder="&#xf184;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Masukan Glucose">
+						<input class="input100" type="number" name="jumlah_Glucose" placeholder="Glucose">
+						<span class="focus-input100" data-placeholder="&#xf184;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Masukan BloodPressure">
+						<input class="input100" type="number" name="BloodPressure" placeholder="BloodPressure">
+						<span class="focus-input100" data-placeholder="&#xf184;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Masukan SkinThickness">
+						<input class="input100" type="number" name="SkinThickness" placeholder="SkinThickness">
+						<span class="focus-input100" data-placeholder="&#xf184;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Masukan Insulin">
+						<input class="input100" type="number" name="Insulin" placeholder="Insulin">
+						<span class="focus-input100" data-placeholder="&#xf184;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Masukan BMI">
+						<input class="input100" type="number" name="BMI" placeholder="BMI">
+						<span class="focus-input100" data-placeholder="&#xf184;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Masukan DiabetesPedigreeFunction">
+						<input class="input100" type="number" name="DiabetesPedigreeFunction" placeholder="DiabetesPedigreeFunction">
+						<span class="focus-input100" data-placeholder="&#xf184;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Masukan Age">
+						<input class="input100" type="number" name="Age" placeholder="Age">
+						<span class="focus-input100" data-placeholder="&#xf184;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Masukan Neighbor">
+						<input class="input100" type="number" name="k" placeholder="Masukan Neighbors">
+						<span class="focus-input100" data-placeholder="&#xf184;"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<a href="/" class="login100-form-btn ml-1">
+							Refresh
+						</a>
+						<a href="/dataset" class="login100-form-btn ml-1">
+							Liat Dataset
+						</a>
+						<button class="login100-form-btn ml-1" type="submit">
+							Cek
+						</button>
+					</div>
+				</form>
+			</div>
+			{% if not evaluat %}
+			<h6></h6>
+			{% else %}
+			<div class="container mt-5">
+				<div class="card">
+					<h5 class="card-header">Hasil Diagnosa</h5>
+					<div class="card-body">
+						<p class="card-text">Kondisi Tubuh Anda {{Pregnancies}} Pregnancies, {{jumlah_Glucose}} Glukosa, {{BloodPressure}} Tekanan darah, {{SkinThickness}} Ketebalan Kulit, {{Insulin}} Insulin, {{BMI}} BMI, {{DiabetesPedigreeFunction}} DiabetesPedigreeFunction, dan Umur {{Age}} Tahun</p>
+
+						<h6 class="card-title mt-4"><b>Neighbors</b></h6>
+						<p class="card-text">Dengan nilai K = {{k}} sebagai berikut:</p>
+						<div><style>.dataframe thead th { text-align: center; }</style>
+							{{Value | safe}}
+						</div>
+						<p class="card-text">Dengan rincian sebagai berikut:</p>
+						<div><style>.dataframe thead th { text-align: center; }</style>
+							{{keputusan | safe}}
+						</div>
+						<h6 class="card-title">Maka hasilnya adalah</h6>
+						{% if evaluat==1 %}
+							<h5 class="text-danger"><b>Positif</b></h5>
+						{% else %}
+							<h5 class="text-green"><b>Negatif</b></h5>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			{% endif %}
+		</div>
+	</div>	
+{% endblock %}
