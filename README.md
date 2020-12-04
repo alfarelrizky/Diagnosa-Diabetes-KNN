@@ -3,7 +3,7 @@
 
 1. Mentari Ramadhana S - 41519120002
 2. M Ayub - 41518110106
-3.Agung Hallman - 41518110241
+3. Agung Hallman - 41518110241
 4. Arga Hutama - 41518110070
 5. Alfarel Rizqi I - 41518110205
 6. Aditya pradana - 41518110158
