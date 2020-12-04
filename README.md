@@ -1,11 +1,11 @@
 # Program Diagnosa Diabetes
 <h4>Kelompok 5</h4>
 
-1. Mentari Ramadhana S - 41519120002 (inti)
-2. M Ayub - 41518110106 (inti)
+1. Mentari Ramadhana S - 41519120002
+2. M Ayub - 41518110106
 3.Agung Hallman - 41518110241
 4. Arga Hutama - 41518110070
-5. Alfarel Rizqi I - 41518110205 (inti)
+5. Alfarel Rizqi I - 41518110205
 6. Aditya pradana - 41518110158
 7. Andriansyah Kamahiza - 41518110082 
 8. M Dzaki Hilmi - 41518110109
